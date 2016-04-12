@@ -233,8 +233,11 @@ int main(int argc, char** argv) {
 
 	    /* pozbieraj slowa */
 	    for (bytes = 0; (c = getc(f)) != EOF; bytes++) {
-	    	if(c == 32)
+	    	if(c == 32){
 	    		sp++;
+	    		bytes--;
+	    		continue;
+	    	}
 	    	if(c == 10){
 	    		sp = 0;
 	    		bytes--;
@@ -264,8 +267,14 @@ int main(int argc, char** argv) {
 	        words = realloc(words, buffer_size * sizeof(char));
 	        indexes = realloc(indexes, buffer_size * sizeof(int));
 	      }
+	      // if(c == 32)
+	      // 	c = 10;
 	      words[bytes] = c;
 	    }
+	    // int i;
+	    // for (i = 0; i < 40; i++){
+	    // 	printf("%c", words[i]);
+	    // }
 
 	    /* policz slowa */
 	    w = words;
@@ -311,6 +320,8 @@ int main(int argc, char** argv) {
   }
 
   if (world_rank == master) printf("Faza redukcji %d kluczy na %d procesorach\n", out_nwords, world_size);
+
+// printf("%d %d %d %d\n", out_nwords, out_words, out_indexes, out_occurs );
 
   reduce(out_nwords, out_words, out_indexes, out_occurs);
 
