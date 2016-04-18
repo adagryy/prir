@@ -1,0 +1,1 @@
+void divide(int size, int words_amount, char* words, int* out_count, int* out_skip);

@@ -1,0 +1,1 @@
+void bytes(int size, int* indexes, int* count, int* skip, int* out_count_bytes, int* out_skip_bytes);
