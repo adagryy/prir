@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <omp.h>
-// #define N 10000000
-// #define S (int)sqrt(N)
-// #define M N/10
+
 
 int main(int argc, char**argv){
 
