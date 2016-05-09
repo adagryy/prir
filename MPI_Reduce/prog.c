@@ -39,6 +39,7 @@ int main(int argc, char** argv) {
 			char usage [] = "Usage:\n";
 			char usage2 [] = "--(addr|stat|time) path/to/logfile";
 			printf("%s %s %s\n", usage, argv[0], usage2);
+			MPI_Finalize();
 			return 0;
 		}else{
 			int bytes;
@@ -116,8 +117,8 @@ int main(int argc, char** argv) {
 			int a = i>0? out_indexes[i-1] : 0;
 			int b = out_indexes[i];
 			printf("Mapped %s => [", w);
-			for (j=a; j<b; j++)
-				printf("%d ", out_occurs[j]);
+			// for (j=a; j<b; j++)
+			// 	printf("%d ", out_occurs[j]);
 			printf("]\n");
 		}
 	}

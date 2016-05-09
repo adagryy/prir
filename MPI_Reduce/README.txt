@@ -1,3 +1,6 @@
+Program usage:
+./wcount --(addr|stat|time) path/to/your/input/file
+
 To run program correctly you should execute commands like:
 make
 mpirun -n 2 ./wcount --addr book.log
